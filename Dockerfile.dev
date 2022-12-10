@@ -1,0 +1,13 @@
+# base image for this 
+From node:16-alpine
+
+#specify the work dir to save to install dependcies copy the frontend dir content
+
+WORKDIR '/app'
+
+COPY package.json .
+RUN npm install 
+
+COPY . .
+
+CMD ["npm", "run", "start"]
